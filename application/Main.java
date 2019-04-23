@@ -12,10 +12,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -27,10 +32,14 @@ public class Main extends Application {
 			VBox vungryBox = new VBox();
 			HBox hungryBox1 = new HBox();
 			HBox hungryBox2 = new HBox();
+			HBox hungryBox3 = new HBox();
 			Button takeQuiz = new Button("Take Quiz");
 			Button addNewQuestion = new Button("Add New Question");
 			Button importBooks = new Button("Import JSON");
 			Button export = new Button("Export");
+			TextField numQuestions = new TextField();
+			numQuestions.setMaxWidth(50);
+			Text placeHolderNum = new Text("Number of Questions: ");
 			
 		
 			// Hard coded 2 topics and 3 questions for topic Hungry
@@ -69,8 +78,11 @@ public class Main extends Application {
 			hungryBox1.setStyle("-fx-border-radius:5;");
 			takeQuiz.setStyle("-fx-font-size:20px;");
 			topics.setStyle("-fx-font-size:20px;");
+			placeHolderNum.setStyle("-fx-font-size:21px;");
 			
-			 hungryBox1.setPadding(new Insets(10, 10, 10, 10));
+			 hungryBox1.setPadding(new Insets(10, 10, 0, 10));
+			 hungryBox2.setPadding(new Insets(10, 10, 0, 10));
+			 hungryBox3.setPadding(new Insets(10, 10, 10, 10));
 
 			topics.setMinSize(Button.USE_PREF_SIZE, Button.USE_PREF_SIZE);
 			final Pane spacer = new Pane();
@@ -83,7 +95,8 @@ public class Main extends Application {
 			// Add all objects to scene and display
 			hungryBox1.getChildren().addAll(topics, spacer, takeQuiz);
 			hungryBox2.getChildren().addAll(addNewQuestion, spacer2, importBooks, export);
-			vungryBox.getChildren().addAll(hungryBox1, hungryBox2, list);
+			hungryBox3.getChildren().addAll(placeHolderNum, numQuestions);
+			vungryBox.getChildren().addAll(hungryBox1, hungryBox2, hungryBox3, list);
 			Scene scene = new Scene(vungryBox, 400, 400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
