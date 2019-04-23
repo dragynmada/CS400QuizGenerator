@@ -7,11 +7,14 @@ import java.util.HashMap;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -49,7 +52,6 @@ public class Main extends Application {
 			ObservableList<String> questionTitles = FXCollections.observableArrayList();
 			for(Question q : topicQuestions) {
 				questionTitles.add(q.getQuestionTitle());
-				System.out.println(q.getQuestionTitle());
 			}
 			ListView<String> list = new ListView<String>(questionTitles);
 			
@@ -59,9 +61,19 @@ public class Main extends Application {
 			takeQuiz.setStyle("-fx-font-size:20px;");
 			topics.setStyle("-fx-font-size:20px;");
 			
+			 hungryBox1.setPadding(new Insets(10, 10, 10, 10));
+
+			topics.setMinSize(Button.USE_PREF_SIZE, Button.USE_PREF_SIZE);
+			final Pane spacer = new Pane();
+			HBox.setHgrow(spacer, Priority.ALWAYS);
+			final Pane spacer2 = new Pane();
+			HBox.setHgrow(spacer2, Priority.ALWAYS);
+			spacer.setMinSize(10, 1);    
+			takeQuiz.setMinSize(Button.USE_PREF_SIZE, Button.USE_PREF_SIZE);
+			
 			// Add all objects to scene and display
-			hungryBox1.getChildren().addAll(topics, takeQuiz);
-			hungryBox2.getChildren().addAll(addNewQuestion, importBooks, export);
+			hungryBox1.getChildren().addAll(topics, spacer, takeQuiz);
+			hungryBox2.getChildren().addAll(addNewQuestion, spacer2, importBooks, export);
 			vungryBox.getChildren().addAll(hungryBox1, hungryBox2, list);
 			Scene scene = new Scene(vungryBox, 400, 400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
