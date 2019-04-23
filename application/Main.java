@@ -39,6 +39,15 @@ public class Main extends Application {
 			questionList.get("Box").add(new Question("Question1", null, 0, null));
 			questionList.get("Box").add(new Question("Question2", null, 0, null));
 			questionList.get("Box").add(new Question("Question3", null, 0, null));
+			questionList.get("Box").add(new Question("Question4", null, 0, null));
+			questionList.get("Box").add(new Question("Question5", null, 0, null));
+			questionList.get("Box").add(new Question("Question6", null, 0, null));
+			questionList.get("Box").add(new Question("Question7", null, 0, null));
+			questionList.get("Box").add(new Question("Question8", null, 0, null));
+			questionList.get("Box").add(new Question("Question9", null, 0, null));
+			questionList.get("Box").add(new Question("Question10", null, 0, null));
+			questionList.get("Box").add(new Question("Question11", null, 0, null));
+			questionList.get("Box").add(new Question("Question12", null, 0, null));
 			
 			// Create comboBox with possible topics
 			ObservableList<String> topicList = FXCollections.observableArrayList(questionList.keySet());
