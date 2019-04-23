@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
@@ -30,8 +31,7 @@ public class Main extends Application {
 			Button takeQuiz = new Button("Take Quiz");
 			Button addNewQuestion = new Button("Add New Question");
 			Button importBooks = new Button("Import JSON");
-			Button export = new Button("Export");
-			
+			Button export = new Button("Export");			
 		
 			// Hard coded 2 topics and 3 questions for topic Hungry
 			questionList.put("Hungry", new ArrayList<Question>());
@@ -71,14 +71,14 @@ public class Main extends Application {
 			topics.setStyle("-fx-font-size:20px;");
 			
 			// Creating spacer for both hBoxes
-			hungryBox1.setPadding(new Insets(10, 10, 10, 10));
-			topics.setMinSize(Button.USE_PREF_SIZE, Button.USE_PREF_SIZE);
+			hungryBox1.setPadding(new Insets(10, 10, 0, 10));
+			hungryBox2.setPadding(new Insets(10, 10, 10, 10));
 			final Pane spacer = new Pane();
 			HBox.setHgrow(spacer, Priority.ALWAYS);
 			final Pane spacer2 = new Pane();
 			HBox.setHgrow(spacer2, Priority.ALWAYS);
-			spacer.setMinSize(10, 1);    
-			takeQuiz.setMinSize(Button.USE_PREF_SIZE, Button.USE_PREF_SIZE);
+			spacer2.setMinSize(10, 1);    
+	
 			
 			// Add all objects to scene and display
 			hungryBox1.getChildren().addAll(topics, spacer, takeQuiz);
