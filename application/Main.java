@@ -70,8 +70,8 @@ public class Main extends Application {
 			takeQuiz.setStyle("-fx-font-size:20px;");
 			topics.setStyle("-fx-font-size:20px;");
 			
-			 hungryBox1.setPadding(new Insets(10, 10, 10, 10));
-
+			// Creating spacer for both hBoxes
+			hungryBox1.setPadding(new Insets(10, 10, 10, 10));
 			topics.setMinSize(Button.USE_PREF_SIZE, Button.USE_PREF_SIZE);
 			final Pane spacer = new Pane();
 			HBox.setHgrow(spacer, Priority.ALWAYS);
