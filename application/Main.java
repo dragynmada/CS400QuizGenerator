@@ -20,6 +20,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			// Creation of buttons and boxes
 			VBox vungryBox = new VBox();
 			HBox hungryBox1 = new HBox();
 			HBox hungryBox2 = new HBox();
@@ -28,34 +29,37 @@ public class Main extends Application {
 			Button importBooks = new Button("Import JSON");
 			Button export = new Button("Export");
 			
-			// Add ArrayList for Questions
-			
+		
+			// Hard coded 2 topics and 3 questions for topic Hungry
 			questionList.put("Hungry", new ArrayList<Question>());
 			questionList.put("Box", new ArrayList<Question>());
+			questionList.get("Box").add(new Question("Question1", null, 0, null));
+			questionList.get("Box").add(new Question("Question2", null, 0, null));
+			questionList.get("Box").add(new Question("Question3", null, 0, null));
 			
-			
+			// Create comboBox with possible topics
 			ObservableList<String> topicList = FXCollections.observableArrayList(questionList.keySet());
-			
 			Collections.sort(topicList);
-		
 			ComboBox<String> topics = new ComboBox<String>();
 			topics.setItems(topicList);
 			topics.getSelectionModel().selectFirst();
+			
+			// Display questions for default topic 
 			ArrayList<Question> topicQuestions = questionList.get(topics.getValue());
 			ObservableList<String> questionTitles = FXCollections.observableArrayList();
-			
-			
-			
 			for(Question q : topicQuestions) {
 				questionTitles.add(q.getQuestionTitle());
+				System.out.println(q.getQuestionTitle());
 			}
-			
 			ListView<String> list = new ListView<String>(questionTitles);
 			
+			// CSS styling for objects
 			hungryBox1.setStyle("-fx-border-color:black;");
 			hungryBox1.setStyle("-fx-border-radius:5;");
-			takeQuiz.setStyle("-fx-font-size:60px;");
+			takeQuiz.setStyle("-fx-font-size:20px;");
+			topics.setStyle("-fx-font-size:20px;");
 			
+			// Add all objects to scene and display
 			hungryBox1.getChildren().addAll(topics, takeQuiz);
 			hungryBox2.getChildren().addAll(addNewQuestion, importBooks, export);
 			vungryBox.getChildren().addAll(hungryBox1, hungryBox2, list);
@@ -63,6 +67,7 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
