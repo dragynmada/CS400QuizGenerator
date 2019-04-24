@@ -28,8 +28,4 @@ public class Question {
   public String getQuestionTitle() {
     return this.questionTitle;
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0a59f4875ee397b8dfd624b8be1ea3a1b7285f80
