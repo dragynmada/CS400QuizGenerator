@@ -1,6 +1,7 @@
 package application;
 
 
+import java.awt.Label;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -19,8 +20,6 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -37,6 +36,7 @@ public class Main extends Application {
       HBox hungryBox1 = new HBox();
       HBox hungryBox2 = new HBox();
       HBox hungryBox3 = new HBox();
+      Text topicLabel = new Text("Topics ");
       Button takeQuiz = new Button("Take Quiz");
       Button addNewQuestion = new Button("Add New Question");
       Button importBooks = new Button("Import JSON");
@@ -92,7 +92,11 @@ public class Main extends Application {
       placeHolderNum.setFont(Font.font("Letter Gothic"));
       placeHolderNum.setFill(Color.rgb(13,61,137));
       numQuestions.getStyleClass().addAll("custom-textfield");
-      list.getStyleClass().addAll("custom-list", "basic-text");
+      list.getStyleClass().addAll("custom-list", "basic-text");     
+      topicLabel.getStyleClass().addAll("basic-text", "text-padding-top");
+      topicLabel.setFill(Color.rgb(13,61,137));
+      HBox.setMargin(topicLabel, new Insets(8,0,0,0));
+      HBox.setMargin(importBooks, new Insets(0,10,0,0));
       
       hungryBox1.setPadding(new Insets(10, 10, 0, 10));
       hungryBox2.setPadding(new Insets(10, 10, 0, 10));
@@ -107,7 +111,7 @@ public class Main extends Application {
       takeQuiz.setMinSize(Button.USE_PREF_SIZE, Button.USE_PREF_SIZE);
 
       // Add all objects to scene and display
-      hungryBox1.getChildren().addAll(topics, spacer, takeQuiz);
+      hungryBox1.getChildren().addAll(topicLabel, topics, spacer, takeQuiz);
       hungryBox2.getChildren().addAll(addNewQuestion, spacer2, importBooks, export);
       hungryBox3.getChildren().addAll(placeHolderNum, numQuestions);
       vungryBox.getChildren().addAll(hungryBox1, hungryBox2, hungryBox3, list);
