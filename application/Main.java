@@ -17,6 +17,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
@@ -31,6 +32,7 @@ public class Main extends Application {
   public void start(Stage primaryStage) {
     try {
       // Creation of buttons and boxes
+      primaryStage.setTitle("Quiz Generator");
       VBox vungryBox = new VBox();
       HBox hungryBox1 = new HBox();
       HBox hungryBox2 = new HBox();
@@ -76,16 +78,21 @@ public class Main extends Application {
       ListView<String> list = new ListView<String>(questionTitles);
 
       // CSS styling for objects
-      hungryBox1.setStyle("-fx-border-color:black;");
+      /*hungryBox1.setStyle("-fx-border-color:black;");
       hungryBox1.setStyle("-fx-border-radius:5;");
       takeQuiz.setStyle("-fx-font-size:20px;");
-      placeHolderNum.setStyle("-fx-font-size:21px;");
+      placeHolderNum.setStyle("-fx-font-size:21px;");*/
       
       takeQuiz.getStyleClass().addAll("custom-button", "basic-text");
       addNewQuestion.getStyleClass().addAll("custom-button", "basic-text");
       importBooks.getStyleClass().addAll("custom-button", "basic-text");
       export.getStyleClass().addAll("custom-button", "basic-text");
       topics.getStyleClass().addAll("custom-combo", "basic-text");
+      placeHolderNum.getStyleClass().addAll("basic-text");
+      placeHolderNum.setFont(Font.font("Letter Gothic"));
+      placeHolderNum.setFill(Color.rgb(13,61,137));
+      numQuestions.getStyleClass().addAll("custom-textfield");
+      list.getStyleClass().addAll("custom-list", "basic-text");
       
       hungryBox1.setPadding(new Insets(10, 10, 0, 10));
       hungryBox2.setPadding(new Insets(10, 10, 0, 10));
