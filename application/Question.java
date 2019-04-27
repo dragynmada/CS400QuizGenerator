@@ -10,11 +10,11 @@ public class Question {
   ImageView image;
 
   public Question(String questionTitle, ArrayList<String> options, int correctIndex,
-      ImageView image) {
+      String imagePath) {
     this.questionTitle = questionTitle;
     this.options = options;
     this.correctIndex = correctIndex;
-    this.image = image;
+    this.image = new ImageView(imagePath);
   }
 
   public int getCorrect() {
