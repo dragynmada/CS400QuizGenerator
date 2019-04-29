@@ -14,7 +14,10 @@ public class Question {
     this.questionTitle = questionTitle;
     this.options = options;
     this.correctIndex = correctIndex;
-    this.image = new ImageView(imagePath);
+    if (imagePath != null)
+      this.image = new ImageView(imagePath);
+    else
+      this.image = null;
   }
 
   public int getCorrect() {
