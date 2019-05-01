@@ -4,6 +4,16 @@
 	-fx-float:left;
 }
 
+.header-text {
+	-fx-font-family:"Letter Gothic";
+	-fx-font-size:45.0px;
+	-fx-text-fill:rgb(13.0,61.0,137.0);
+}
+
+.center {
+	-fx-alignment:center;
+}
+
 .custom-button{
 	-fx-background-color:white;
 	-fx-border-color:rgb(13.0,61.0,137.0);
